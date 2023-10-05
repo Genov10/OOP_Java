@@ -1,7 +1,6 @@
-package org.example.lab3;
+package org.example.lab4;
 
-import org.example.lab2.manufacturedInstruments.Tool;
-import org.example.lab3.tools.MeasuringTool;
+import org.example.lab4.tools.MeasuringTool;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
-package org.example.lab3;
+package org.example.lab4;
 
-import org.example.lab3.tools.ElectricMeasuringTool;
-import org.example.lab3.tools.MeasuringTool;
-import org.example.lab3.tools.parameters.Dimensions;
+import org.example.lab4.tools.ElectricMeasuringTool;
+import org.example.lab4.tools.MeasuringTool;
+import org.example.lab4.tools.parameters.Dimensions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,10 @@ public class Main {
 
         ElectricMeasuringTool electricLevel = new ElectricMeasuringTool("Electric level", new Dimensions(5.0, 3.0, 10.0), 200.0, 40.0, 10.0);
         electricLevel.toolStatus();
+        electricLevel.turnOn();
+        electricLevel.turnOff();
         electricLevel.use();
+        electricLevel.turnOn();
 
         List<MeasuringTool> orederedTools = new ArrayList<>();
         orederedTools.add(measuringTape);

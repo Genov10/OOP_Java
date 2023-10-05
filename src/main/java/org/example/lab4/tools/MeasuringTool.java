@@ -1,14 +1,14 @@
-package org.example.lab3.tools;
+package org.example.lab4.tools;
 
-import org.example.lab3.tools.parameters.Dimensions;
+import org.example.lab4.tools.parameters.Dimensions;
 
 import java.util.Scanner;
 
-public class MeasuringTool extends Tool{
+public class MeasuringTool implements Tool {
     Scanner scanner = new Scanner(System.in);
     private String name;
     private Dimensions dimensions;
-    private boolean isUsing = false;
+    protected boolean isUsing = false;
 
     public MeasuringTool(String name, Dimensions dimensions) {
         this.name = name;

@@ -1,14 +1,12 @@
-package org.example.lab3.tools;
+package org.example.lab4.tools;
 
-import org.example.lab3.tools.parameters.Dimensions;
+import org.example.lab4.tools.parameters.Dimensions;
 
-public class ElectricMeasuringTool extends MeasuringTool{
-    private final double SAFELY_VOLTAGE = 230;
-    private final double SAFELY_CURRENT = 50;
-    private final double SAFELY_FREQUENCY = 15;
+public class ElectricMeasuringTool extends MeasuringTool implements ElectricTool{
     private double voltage;
     private double current;
     private double frequency;
+    private boolean isOn = false;
     public ElectricMeasuringTool(String name, Dimensions dimensions, double voltage, double current, double frequency) {
         super(name, dimensions);
         this.voltage = voltage;
@@ -33,6 +31,36 @@ public class ElectricMeasuringTool extends MeasuringTool{
         }else {
             System.out.println(isToolSafety() + "\n" + super.getName() + " is not espaliered");
             return super.getName() + " is not espaliered";
+        }
+    }
+
+    @Override
+    public void turnOn() {
+        if (!isOn) {
+            isOn = true;
+            System.out.println(super.getName() +" turned on");
+        } else {
+            System.out.println(super.getName() + " already turned on");
+        }
+    }
+
+    @Override
+    public void turnOff() {
+        if (isOn) {
+            isOn = false;
+            System.out.println(super.getName() +" turned off");
+        } else {
+            System.out.println(super.getName() + " already turned off");
+        }
+    }
+
+    public void use() {
+        if (!super.isUsing) {
+            turnOn();
+            isUsing = true;
+            System.out.println(super.getName() +" ready to be use");
+        } else {
+            System.out.println(super.getName() + " is already using");
         }
     }
 

@@ -1,4 +1,4 @@
-package org.example.lab3.tools.parameters;
+package org.example.lab4.tools.parameters;
 
 public class Dimensions {
     private double height;
