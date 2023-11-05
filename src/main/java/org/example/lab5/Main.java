@@ -1,26 +1,43 @@
 package org.example.lab5;
 
+import org.example.lab5.manufacturedInstruments.Tool;
+import org.example.lab5.manufacturedInstruments.parameters.Dimensions;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        ProductList productList = new ProductList();
+        Tools tools = new Tools();
 
-        try {
-            productList.addProduct(new Product("Product 1", "Manufacturer 1", 100.0, 120.0, 12));
-            productList.addProduct(new Product("Product 2", "Manufacturer 1", 200.0, 240.0, 24));
-            productList.addProduct(new Product("Product 3", "Manufacturer 1", 300.0, 360.0, 36));
-            productList.addProduct(new Product("Product 4", "Manufacturer 2", 400.0, 480.0, 48));
-            productList.addProduct(new Product("Product 5", "Manufacturer 2", 500.0, 600.0, 60));
-            productList.addProduct(new Product("Product 6", "Manufacturer 3", 600.0, 720.0, 72));
+        tools.add(new Tool("Measuring tape", new Dimensions(20, 10, 10)));
+        tools.add(new Tool("line", new Dimensions(1, 2, 20)));
+        tools.add(new Tool("Hummer", new Dimensions(20, 8, 4)));
+        tools.show();
 
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        System.out.println("2---------------");
+        tools.addFirst(new Tool("barometer", new Dimensions(19, 18, 4)));
+        tools.show();
 
-        productList.showProducts();
+        System.out.println("7---------------");
+        tools.removeLast();
+        tools.show();
 
-        System.out.println(productList.findProductWithLongestWarranty());
+        System.out.println("18---------------");
+        tools.removeByIndex(3);
+        tools.removeByIndex(1);
+        tools.show();
 
-        System.out.println(productList.findLeastManufacturers());
+        System.out.println("11---------------");
+        System.out.println(tools.isToolExist("barometer"));
+        System.out.println(tools.isToolExist("level"));
 
+        System.out.println("12---------------");
+        System.out.println(tools.ListToArray());
+
+        System.out.println("17---------------");
+
+        tools.changeEl(new Tool("Level", new Dimensions(5, 5, 200)), 0);
+        tools.show();
     }
 }
